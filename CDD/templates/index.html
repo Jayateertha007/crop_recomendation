@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Crop Recommendation System</title>
+                        
+        <link href="/media/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="/media/css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="/media/css/templatemo-topic-listing.css" rel="stylesheet">
+
+        <link href="/media/css/style.css" rel="stylesheet">
+
+        <script src="/media/js/script.js"></script>
+
+    </head>
+    
+    <body id="top">
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="{% url 'accounts:home' %}">
+                        <i class="bi-back"></i>
+                        <span>CRS</span>
+                    </a>
+
+                    <div class="d-lg-none ms-auto me-4">
+                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav" >
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_2">Services</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_3">How it works</a>
+                            </li>
+
+                            <!--
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_4">FAQs</a>
+                            </li>
+                            -->
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link click-scroll" href="#section_5">Contact</a>-->
+<!--                            </li>-->
+                        </ul>
+                        <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto"  style="padding-left: 20%;">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle bi-person" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                </button>
+    
+                                <ul class="dropdown-menu">
+                                    {% csrf_token %}
+                                                                       <li>
+  {% if not user.is_authenticated %}
+    <a href="{% url 'accounts:login' %}"><button class="dropdown-item" type="button">Login</button></a>
+  {% else %}
+    <button class="dropdown-item disabled" type="button" disabled>Login</button>
+  {% endif %}
+</li>
+
+                                    <li>
+  {% if not user.is_authenticated %}
+    <a href="{% url 'accounts:register' %}"><button class="dropdown-item" type="button">Register</button></a>
+  {% else %}
+    <button class="dropdown-item disabled" type="button" disabled>Register</button>
+  {% endif %}
+</li>
+<li>
+    {% if  user.is_authenticated %}
+    <a href="{% url 'accounts:logout' %}"><button class="dropdown-item" type="button">Logout</button></a>
+    {% else %}
+    <button class="dropdown-item" type="button" disabled >Logout</button></a>
+    {% endif %}
+</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+                <div class="container">
+                    <div class="row">
+
+                        <div class=" mx-auto">
+                            <h1 class="animated-heading text-white text-center">Crop Recommendation System</h1>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        
+            <section class="featured-section">
+                <div class="container">
+                    
+                </div>
+            </section>
+
+
+            <section class="explore-section section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h2 class="mb-2">Crop Recommendation</h2>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-12 text-center" >
+              {% if not user.is_authenticated %}
+            {% endif %}
+            </div>
+
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-13">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0 ">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                {% if user.is_authenticated %}
+                                                <a href="{% url 'accounts:crop_rec' %}">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Crop Recommendation</h5>
+
+                                                                
+                                                        </div>
+                                                    </div>
+
+                                                    <img src="/media/images/crop_rec.jpg" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                                {% else %}
+
+                                                <a href="{% url 'accounts:register' %}">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Crop Recommendation</h5>
+
+                                                                
+                                                        </div>
+                                                    </div>
+
+                                                    <img src="/media/images/crop_rec.jpg" class="custom-block-image img-fluid" alt="">
+                                                    </a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section class="timeline-section section-padding" id="section_3">
+                <div class="section-overlay"></div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h2 class="text-white mb-4">How does it work?</h1>
+                        </div>
+
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <div class="timeline-container">
+                                <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                                    <div class="list-progress">
+                                        <div class="inner"></div>
+                                    </div>
+
+
+                                    <li>
+                                        <h4 class="text-white mb-3">Crop Recommendation</h4>
+
+                                        <p class="text-white">Enter the soil and climate details and get the Crop Recommendation based on the soil and the climate conditions </p>
+
+<!--                                        <div class="icon-holder">-->
+<!--                                          <i class=" bi-1-circle"></i>-->
+<!--                                        </div>-->
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+           </main>
+
+<!--<footer class="site-footer" id="section_5">-->
+<!--    <section class="section-padding section-bg">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div style="color: black; font-size: 60px; text-align: center;">Contact Us</div>-->
+
+<!--                <div class="col-lg-12 col-12">-->
+<!--                    <h3 class="mb-4 pb-2">We'd love to hear from you</h3>-->
+<!--                </div>-->
+
+<!--                <div class="col-lg-6 col-12">-->
+<!--                    <form action="#" method="post" class="custom-form contact-form" role="form">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-lg-6 col-md-6 col-12">-->
+<!--                                <div class="form-floating">-->
+<!--                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" required="">-->
+
+<!--                                    <label for="floatingInput">Name</label>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="col-lg-6 col-md-6 col-12">-->
+<!--                                <div class="form-floating">-->
+<!--                                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">-->
+
+<!--                                    <label for="floatingInput">Email address</label>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="col-lg-12 col-12">-->
+<!--                                <div class="form-floating">-->
+<!--                                    <input type="text" name="subject" id="name" class="form-control" placeholder="Name" required="">-->
+
+<!--                                    <label for="floatingInput">Subject</label>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-floating">-->
+<!--                                    <textarea class="form-control" id="message" name="message" placeholder="Tell me about the project"></textarea>-->
+
+<!--                                    <label for="floatingTextarea">Tell me about the project</label>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="col-lg-4 col-12 ms-auto">-->
+<!--                                <button type="submit" class="form-control">Submit</button>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+
+<!--                <div class="col-lg-5 col-12 mx-auto mt-5 mt-lg-0">-->
+<!--                    <img src="/media/images/conta.jpg" alt="" width="600px" height="300px">-->
+
+
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+<!--        </footer>-->
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="/media/js/jquery.min.js"></script>
+        <script src="/media/js/bootstrap.bundle.min.js"></script>
+        <script src="/media/js/jquery.sticky.js"></script>
+        <script src="/media/js/click-scroll.js"></script>
+        <script src="/media/js/custom.js"></script>
+
+    </body>
+</html>
